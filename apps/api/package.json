@@ -6,12 +6,17 @@
   "main": "index.js",
   "scripts": {
     "test": "viest",
-    "dev": "node --watch src/server.ts",
+    "dev": "tsx src/index.ts --watch",
     "build": "tsc -p tsconfig.build.json",
     "clean": "rm -rf dist"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "server",
+    "express",
+    "api",
+    "nodejs"
+  ],
+  "author": "saisaynoomleng",
   "license": "ISC",
   "type": "module",
   "devDependencies": {
@@ -20,7 +25,9 @@
     "@types/express": "^5.0.6",
     "@types/morgan": "^1.9.10",
     "@types/node": "^20",
+    "@types/pg": "^8.20.0",
     "cors": "^2.8.6",
+    "drizzle-kit": "1.0.0-rc.4",
     "express": "^5.2.1",
     "helmet": "^8.3.0",
     "morgan": "^1.11.0",
@@ -28,6 +35,16 @@
     "zod": "^4.4.3"
   },
   "dependencies": {
+    "better-auth": "^1.6.23",
+    "dotenv": "^17.4.2",
+    "drizzle-orm": "1.0.0-rc.4",
+    "pg": "^8.22.0",
     "typescript": "^7.0.2"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.ts"
+    }
   }
 }
