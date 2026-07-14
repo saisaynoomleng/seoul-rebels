@@ -1,0 +1,14 @@
+{
+  "name": "@street-culture/email",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {},
+  "dependencies": {
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3"
+  }
+}
