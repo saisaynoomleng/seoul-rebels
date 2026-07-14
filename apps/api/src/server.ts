@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { type Express } from 'express';
 import helmet from 'helmet';
 import morgan from 'morgan';
 import cors from 'cors';
@@ -6,7 +6,7 @@ import env, { isTest } from './lib/env';
 
 const allowedOrigins = env.ALLOWED_ORIGINS.split(',');
 
-const app = express();
+const app: Express = express();
 
 // app.use('/api/auth/{*any}', toNodeHandler(auth));
 
