@@ -1,0 +1,34 @@
+{
+  "name": "seoul-rebels",
+  "version": "1.0.0",
+  "private": true,
+  "description": "",
+  "scripts": {
+    "test": "pnpm --color -r run vitest",
+    "test:coverage": "pnpm --color -r run vitest run --coverage",
+    "dev": "turbo dev",
+    "build": "turbo build",
+    "format": "prettier --write .",
+    "clean": "turbo clean",
+    "lint": "turbo lint"
+  },
+  "keywords": [
+    "ecommerce",
+    "street styles",
+    "fashion clothings",
+    "high end clothings",
+    "clothings"
+  ],
+  "author": "saisaynoomleng",
+  "license": "ISC",
+  "type": "module",
+  "engines": {
+    "node": ">=24.0.0",
+    "pnpm": ">=11.0.0"
+  },
+  "devDependencies": {
+    "@manypkg/cli": "^0.25.1",
+    "syncpack": "^15.3.2",
+    "turbo": "^2.10.4"
+  }
+}
