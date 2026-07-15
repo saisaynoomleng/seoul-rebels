@@ -1,28 +1,33 @@
 import type { StorybookConfig } from '@storybook/react-vite';
+import tailwindcss from '@tailwindcss/vite';
+import tsConfigpaths from 'vite-tsconfig-paths';
+import { mergeConfig } from 'vitest/config';
 
-import { dirname } from "path"
+import { dirname } from 'path';
 
-import { fileURLToPath } from "url"
+import { fileURLToPath } from 'url';
 
 /**
-* This function is used to resolve the absolute path of a package.
-* It is needed in projects that use Yarn PnP or are set up within a monorepo.
-*/
+ * This function is used to resolve the absolute path of a package.
+ * It is needed in projects that use Yarn PnP or are set up within a monorepo.
+ */
 function getAbsolutePath(value: string) {
-  return dirname(fileURLToPath(import.meta.resolve(`${value}/package.json`)))
+  return dirname(fileURLToPath(import.meta.resolve(`${value}/package.json`)));
 }
 const config: StorybookConfig = {
-  "stories": [
-    "../stories/**/*.mdx",
-    "../stories/**/*.stories.@(js|jsx|mjs|ts|tsx)"
-  ],
-  "addons": [
+  stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
+  addons: [
     getAbsolutePath('@chromatic-com/storybook'),
     getAbsolutePath('@storybook/addon-vitest'),
     getAbsolutePath('@storybook/addon-a11y'),
     getAbsolutePath('@storybook/addon-docs'),
-    getAbsolutePath('@storybook/addon-mcp')
+    getAbsolutePath('@storybook/addon-mcp'),
+    getAbsolutePath('@storybook/addon-themes'),
   ],
-  "framework": getAbsolutePath('@storybook/react-vite')
+  framework: getAbsolutePath('@storybook/react-vite'),
+  viteFinal: async (viteConfig) =>
+    mergeConfig(viteConfig, {
+      plugins: [tailwindcss(), tsConfigpaths()],
+    }),
 };
 export default config;
