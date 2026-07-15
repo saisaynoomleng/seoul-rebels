@@ -20,6 +20,7 @@ export const formatTitle = (title: string): string => {
 export const sanitySlugifier = (input: string): string => {
   return input
     .trim()
+    .toLowerCase()
     .replace(/[^\w\s-]/g, '')
     .replace(/\s+/g, '-')
     .replace(/-+/g, '-')
@@ -88,3 +89,40 @@ export const formatUSD = (currency: number): string => {
     currency: 'usd',
   }).format(currency);
 };
+
+/**
+ * Return the MegaByte size of the input size
+ * @param size number
+ * @returns number
+ */
+export const maximumImageSize = (size: number): number => {
+  return size * 1024 * 1024;
+};
+
+/**
+ * Return 12 Hours time string with date or string input
+ * @param time string | Date
+ * @returns string
+ */
+export const formatTime = (time: string | Date): string => {
+  return new Date(time).toLocaleTimeString(undefined, {
+    hour12: true,
+  });
+};
+
+/**
+ * Allowed image types for the input file
+ */
+export const ALLOWED_IMAGE_TYPES = [
+  'image/avif',
+  'image/jpg',
+  'image/jpeg',
+  'image/png',
+  'image/webp',
+  'image/heic',
+  'image/heif',
+  'image/gif',
+  'image/svg',
+  'image/ai',
+  'image/eps',
+];

@@ -6,11 +6,16 @@
   "scripts": {
     "dev": "tsx --watch src/index.ts",
     "build": "tsc -p tsconfig.build.json",
-    "clean": "rm -rf dist"
+    "clean": "rm -rf dist",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage"
   },
   "devDependencies": {
     "@types/node": "^20",
     "tsx": "^4.23.1",
+    "vite-tsconfig-paths": "^6.1.1",
+    "vitest": "^4.1.10",
     "zod": "^4.4.3"
   },
   "dependencies": {
