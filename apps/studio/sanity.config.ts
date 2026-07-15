@@ -6,6 +6,7 @@ import {schemaTypes} from './schemaTypes'
 import {structure} from './structure'
 
 import {media} from 'sanity-plugin-media'
+import {colorInput} from '@sanity/color-input'
 
 export default defineConfig({
   name: 'default',
@@ -14,7 +15,7 @@ export default defineConfig({
   projectId: 'fg8lqh2u',
   dataset: 'production',
 
-  plugins: [structureTool({structure}), visionTool(), media()],
+  plugins: [structureTool({structure}), visionTool(), media(), colorInput()],
 
   schema: {
     types: schemaTypes,
