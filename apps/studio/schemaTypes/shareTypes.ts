@@ -177,3 +177,45 @@ export const measurement = defineType({
     }),
   ],
 })
+
+export const contactInfo = defineType({
+  name: 'contactInfo',
+  type: 'object',
+  fields: [
+    defineField({
+      name: 'email',
+      type: 'email',
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: 'phone',
+      type: 'string',
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: 'street',
+      type: 'string',
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: 'city',
+      type: 'string',
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: 'state',
+      type: 'string',
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: 'zip',
+      type: 'string',
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: 'country',
+      type: 'string',
+      validation: (rule) => rule.required(),
+    }),
+  ],
+})
