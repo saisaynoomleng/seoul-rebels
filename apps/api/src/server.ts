@@ -2,13 +2,16 @@ import express, { type Express } from 'express';
 import helmet from 'helmet';
 import morgan from 'morgan';
 import cors from 'cors';
+
 import env, { isTest } from './lib/env';
+import { toNodeHandler } from 'better-auth/node';
+import { auth } from './lib/auth';
 
 const allowedOrigins = env.ALLOWED_ORIGINS.split(',');
 
 const app: Express = express();
 
-// app.use('/api/auth/{*any}', toNodeHandler(auth));
+app.use('/api/auth/{*any}', toNodeHandler(auth));
 
 app.use(helmet());
 app.use(

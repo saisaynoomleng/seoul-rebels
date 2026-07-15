@@ -21,6 +21,8 @@ const schema = z.object({
     .min(1, 'Database URL must have at least 1 character')
     .startsWith('postgresql://neondb_owner:'),
   ALLOWED_ORIGINS: z.string(),
+  ADMIN_APP_URL: z.url(),
+  WEB_APP_URL: z.url(),
 
   BETTER_AUTH_SECRET: z
     .string()
