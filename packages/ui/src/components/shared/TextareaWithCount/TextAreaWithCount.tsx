@@ -8,7 +8,7 @@ type TextAreaWithCountProps = {
   className?: string;
   maxLength?: number;
   id: string;
-} & ComponentPropsWithoutRef<'textarea'>;
+} & Omit<ComponentPropsWithoutRef<'textarea'>, 'className' | 'id'>;
 
 export const TextAreaWithCount = ({
   maxLength = 2000,
