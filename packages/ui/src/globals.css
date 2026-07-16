@@ -56,3 +56,9 @@
     @apply text-pretty;
   }
 }
+
+@utility youtubeShadow {
+  box-shadow: 8px 3px 0px 4px #86e7b8;
+  -webkit-box-shadow: 8px 3px 0px 4px #86e7b8;
+  -moz-box-shadow: 8px 3px 0px 4px #86e7b8;
+}
