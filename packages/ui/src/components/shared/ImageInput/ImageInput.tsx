@@ -13,8 +13,7 @@ import { GoFileMedia } from 'react-icons/go';
 
 type ImageInputProps = {
   className?: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  onValidFile?: (file: File) => void;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onValidationError?: (message: string) => void;
   errorMessage?: string;
 } & Omit<ComponentPropsWithoutRef<'input'>, 'className' | 'onChange'>;
@@ -22,7 +21,6 @@ type ImageInputProps = {
 export const ImageInput = ({
   className,
   onChange,
-  onValidFile,
   onValidationError,
   errorMessage,
   ...props
@@ -38,8 +36,6 @@ export const ImageInput = ({
     if (!result.success) {
       return onValidationError?.(result.error);
     }
-
-    onValidFile?.(result.file);
 
     setImage({
       file: result.file,
