@@ -13,21 +13,6 @@ export const formatTitle = (title: string): string => {
 };
 
 /**
- * Return a slug string for sanity documents
- * @param input string
- * @returns string
- */
-export const sanitySlugifier = (input: string): string => {
-  return input
-    .trim()
-    .toLowerCase()
-    .replace(/[^\w\s-]/g, '')
-    .replace(/\s+/g, '-')
-    .replace(/-+/g, '-')
-    .slice(0, 200);
-};
-
-/**
  * Return a local date Format
  * @param date string | Date
  * @returns string
@@ -38,32 +23,6 @@ export const formatDate = (date: string | Date): string => {
     month: 'short',
     year: 'numeric',
   });
-};
-
-/**
- * Return random SKU number with name input
- * @param brand string
- * @returns string
- */
-export const generateSKU = (name: string): string => {
-  const normalizeName = normalizeInput(name);
-  const random = crypto.randomUUID().slice(0, 13);
-
-  return `${normalizeName}-${random.toUpperCase()}`;
-};
-
-/**
- * Return a string with 3 uppercased letters
- * @param input string
- * @returns string
- */
-export const normalizeInput = (input: string): string => {
-  return input
-    .trim()
-    .toUpperCase()
-    .replace(/[^\w]/g, '')
-    .padEnd(3, 'X')
-    .slice(0, 3);
 };
 
 /**
@@ -91,15 +50,6 @@ export const formatUSD = (currency: number): string => {
 };
 
 /**
- * Return the MegaByte size of the input size
- * @param size number
- * @returns number
- */
-export const maximumImageSize = (size: number): number => {
-  return size * 1024 * 1024;
-};
-
-/**
  * Return 12 Hours time string with date or string input
  * @param time string | Date
  * @returns string
@@ -111,18 +61,22 @@ export const formatTime = (time: string | Date): string => {
 };
 
 /**
- * Allowed image types for the input file
+ * Format file size in byte
+ * @param byte number
+ * @returns string
  */
-export const ALLOWED_IMAGE_TYPES = [
-  'image/avif',
-  'image/jpg',
-  'image/jpeg',
-  'image/png',
-  'image/webp',
-  'image/heic',
-  'image/heif',
-  'image/gif',
-  'image/svg',
-  'image/ai',
-  'image/eps',
-];
+export const formatFileSize = (byte: number): string => {
+  if (byte < 1024) {
+    return `${byte}B`;
+  }
+
+  if (byte < 1024 * 1024) {
+    return `${(byte / 1024).toFixed(2)} KB`;
+  }
+
+  if (byte < 1024 * 1024 * 1024) {
+    return `${(byte / 1024 / 1024).toFixed(2)} MB`;
+  }
+
+  return `${(byte / 1024 / 1024 / 1024).toFixed(2)} GB`;
+};
