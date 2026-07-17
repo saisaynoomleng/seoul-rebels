@@ -5,6 +5,6 @@ import { colors } from './colors';
 
 <ColorPalette>
   {Object.entries(colors).map(([key, value]) => (
-    <ColorItem key={key} title={key.toUpperCase()} colors={{ hex: value }} />
+    <ColorItem key={key} title={key.toUpperCase()} colors={value} />
   ))}
 </ColorPalette>
