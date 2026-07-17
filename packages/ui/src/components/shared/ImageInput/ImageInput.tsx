@@ -1,3 +1,5 @@
+'use client';
+
 import React, { ComponentPropsWithoutRef, useState } from 'react';
 import { Bounded } from '../Bounded';
 import { Input } from '#components/ui/input';

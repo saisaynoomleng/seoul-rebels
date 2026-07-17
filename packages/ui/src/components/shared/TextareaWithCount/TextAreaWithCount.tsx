@@ -1,3 +1,5 @@
+'use client';
+
 import React, { ComponentPropsWithoutRef, Dispatch, useState } from 'react';
 import { Bounded } from '../Bounded';
 import { twMerge } from 'tailwind-merge';
