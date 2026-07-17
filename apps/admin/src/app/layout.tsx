@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { SidebarProvider } from '@seoul-rebels/ui';
 import { AdminSidebar } from '@/components/AdminSidebar';
+import { QueryProvider } from '@/components/Provider';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -18,7 +19,9 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col bg-brand-accent-200">
         <SidebarProvider>
           <AdminSidebar />
-          <main>{children}</main>
+          <QueryProvider>
+            <main>{children}</main>
+          </QueryProvider>
         </SidebarProvider>
       </body>
     </html>
