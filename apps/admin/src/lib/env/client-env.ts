@@ -13,10 +13,12 @@ export const env = createEnv({
     NEXT_PUBLIC_SANITY_API_VERSION: z
       .string()
       .min(1, 'Sanity API Version must have at least 1 character'),
+    NEXT_PUBLIC_API_URL: z.url(),
   },
   runtimeEnv: {
     NEXT_PUBLIC_SANITY_DATASET: process.env.NEXT_PUBLIC_SANITY_DATASET,
     NEXT_PUBLIC_SANITY_PROJECT_ID: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
     NEXT_PUBLIC_SANITY_API_VERSION: process.env.NEXT_PUBLIC_SANITY_API_VERSION,
+    NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL,
   },
 });

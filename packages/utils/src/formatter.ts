@@ -54,8 +54,16 @@ export const formatUSD = (currency: number): string => {
  * @param time string | Date
  * @returns string
  */
-export const formatTime = (time: string | Date): string => {
-  return new Date(time).toLocaleTimeString(undefined, {
+export const formatTime = (time: string): string => {
+  const [hour, minute] = time.split(':');
+
+  const date = new Date();
+  date.setHours(Number(hour));
+  date.setMinutes(Number(minute));
+
+  return date.toLocaleTimeString(undefined, {
+    hour: 'numeric',
+    minute: 'numeric',
     hour12: true,
   });
 };

@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import {
+  addPointerArrow,
   formatDate,
   formatKRW,
   formatTime,
@@ -8,6 +9,7 @@ import {
   generateSKU,
   maximumImageSize,
   normalizeInput,
+  removeDashAndReplaceWithSpace,
   sanitySlugifier,
 } from '../src';
 
@@ -73,5 +75,19 @@ describe('format time', () => {
   it('should return a time string', () => {
     expect(formatTime('1996/09/24 15:30:00')).toBe('3:30:00 PM');
     expect(formatTime(new Date('1995-12-17T03:24:00'))).toBe('3:24:00 AM');
+  });
+});
+
+describe('add Pointer arrow', () => {
+  it('should add pointer arrow', () => {
+    expect(addPointerArrow('Home Products Product-Detail')).toBe(
+      'Home > Products > Product-Detail',
+    );
+  });
+});
+
+describe('remove dash and replace with space', () => {
+  it('should remove and replace with space', () => {
+    expect(removeDashAndReplaceWithSpace('hello-sai')).toBe('hello sai');
   });
 });

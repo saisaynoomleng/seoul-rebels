@@ -4,7 +4,8 @@ import { createInsertSchema, createSelectSchema } from 'drizzle-orm/zod';
 
 export const StoresTable = t.pgTable('stores', {
   id: t.uuid('id').primaryKey().defaultRandom(),
-  sanitySlug: t.varchar('sanity_slug', { length: 255 }).notNull().unique(),
+  sanitySlug: t.varchar('sanity_slug', { length: 255 }).notNull(),
+  sanityId: t.varchar('sanity_id', { length: 255 }).notNull().unique(),
   name: t.varchar('name', { length: 255 }).notNull(),
   ...timestamps,
 });

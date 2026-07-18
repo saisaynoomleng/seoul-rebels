@@ -38,6 +38,7 @@
     "zod": "^4.4.3"
   },
   "dependencies": {
+    "@seoul-rebels/utils": "workspace:*",
     "better-auth": "^1.6.23",
     "dotenv": "^17.4.2",
     "drizzle-orm": "1.0.0-rc.4",

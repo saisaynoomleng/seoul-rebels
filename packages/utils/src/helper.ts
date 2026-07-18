@@ -101,3 +101,32 @@ export const validateImage = (file: File): ValidateImageResult => {
     file,
   };
 };
+
+/**
+ * Add greater than sign '>' on every whitespace
+ * @param input string
+ * @returns string
+ */
+export const addPointerArrow = (input: string): string => {
+  return input.trim().replace(/\s+/g, ' ').split(' ').join(' > ');
+};
+
+/**
+ * Remove dash '-' in a string and replace with whitespace
+ * @param input string
+ * @returns string
+ */
+export const removeDashAndReplaceWithSpace = (input: string): string => {
+  return input.replace(/-/g, ' ');
+};
+
+/**
+ * Generate Random UUID string for Sanity document's _id
+ * @returns string
+ */
+export const generateSanityId = (): string => {
+  const dateDigits = new Date().getTime().toString().slice(0, 8);
+  const random = crypto.randomUUID();
+
+  return `${random}-${dateDigits}`;
+};

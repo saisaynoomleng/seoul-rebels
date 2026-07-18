@@ -15,9 +15,9 @@ import { GoFileMedia } from 'react-icons/go';
 
 type ImageInputProps = {
   className?: string;
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange?: (file: File) => void;
   onValidationError?: (message: string) => void;
-  errorMessage?: string;
+  errorMessage: string | undefined;
 } & Omit<ComponentPropsWithoutRef<'input'>, 'className' | 'onChange'>;
 
 export const ImageInput = ({
@@ -44,11 +44,11 @@ export const ImageInput = ({
       preview: URL.createObjectURL(result.file),
     });
 
-    onChange?.(e);
+    onChange?.(result.file);
   };
 
   return (
-    <Bounded className="border" as="div">
+    <Bounded className="border" as="div" size="full">
       <Field className="flex flex-col gap-y-4 w-full">
         <FieldLabel htmlFor="photo">Upload an image</FieldLabel>
 
@@ -81,7 +81,7 @@ export const ImageInput = ({
           onChange={handleUpload}
           {...props}
         />
-        <FieldError>{errorMessage}</FieldError>
+        {errorMessage && <FieldError>{errorMessage}</FieldError>}
       </Field>
     </Bounded>
   );
