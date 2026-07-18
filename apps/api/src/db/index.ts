@@ -22,3 +22,4 @@ if (isProd()) {
 
 const db = drizzle({ client, relations, logger: true });
 export default db;
+export * from './schema';

@@ -20,7 +20,10 @@ export function ModeToggle() {
   }
 
   return (
-    <Button onClick={() => setTheme(isDark ? 'light' : 'dark')}>
+    <Button
+      variant="outline"
+      onClick={() => setTheme(isDark ? 'light' : 'dark')}
+    >
       {isDark ? <Sun /> : <Moon />}
     </Button>
   );

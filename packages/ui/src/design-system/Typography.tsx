@@ -13,7 +13,7 @@ import { Separator } from '#components/ui/separator';
 import { GiFurShirt, GiResize, GiStairsGoal, GiTShirt } from 'react-icons/gi';
 import { RiQuestionnaireLine } from 'react-icons/ri';
 import { IoStorefrontSharp } from 'react-icons/io5';
-import { FaPeopleGroup } from 'react-icons/fa6';
+import { FaMagnifyingGlass, FaPeopleGroup } from 'react-icons/fa6';
 import {
   BiCollection,
   BiSolidCategory,
@@ -41,6 +41,7 @@ const Icons = [
   <PiNewspaperBold />,
   <MdMapsHomeWork />,
   <LuBookHeart />,
+  <FaMagnifyingGlass />,
 ];
 
 const HEADING = [
