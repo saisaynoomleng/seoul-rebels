@@ -145,7 +145,7 @@ export const AdminSidebar = (): React.JSX.Element => {
           <SidebarMenuItem className="dark:block hidden overflow-hidden aspect-video">
             <Link href="/">
               <Image
-                src={`https://cdn.sanity.io/images/fg8lqh2u/production/b307b8433b2f5fa67446d57093699e63d6294f6f-503x239.png`}
+                src={`https://cdn.sanity.io/images/fg8lqh2u/production/84fa054f0cb7edd4ea2dabef706ab3b23c1488ef-520x250.png`}
                 alt="Black Logo"
                 fill
                 className="object-contain w-full"

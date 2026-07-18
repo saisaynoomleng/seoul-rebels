@@ -1,8 +1,9 @@
 import type { Metadata } from 'next';
 import './globals.css';
-import { SidebarProvider, Toaster } from '@seoul-rebels/ui';
+import { SidebarProvider, ThemeProvider, Toaster } from '@seoul-rebels/ui';
 import { AdminSidebar } from '@/components/AdminSidebar';
 import { QueryProvider } from '@/components/QueryProvider';
+import AdminNav from '@/components/AdminNav';
 
 export const metadata: Metadata = {
   title: {
@@ -18,17 +19,29 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`min-h-dvh antialiased`}>
+    <html
+      lang="en"
+      className={`min-h-dvh antialiased`}
+      suppressHydrationWarning
+    >
       <body className="min-h-full bg-brand-accent-50">
-        <SidebarProvider>
-          <AdminSidebar />
-          <QueryProvider>
-            <main className="w-full">
-              {children}
-              <Toaster richColors closeButton position="bottom-center" />
-            </main>
-          </QueryProvider>
-        </SidebarProvider>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <SidebarProvider>
+            <AdminSidebar />
+            <QueryProvider>
+              <main className="w-full">
+                <AdminNav />
+                {children}
+                <Toaster richColors closeButton position="bottom-center" />
+              </main>
+            </QueryProvider>
+          </SidebarProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
