@@ -5,3 +5,4 @@ export * from './SectionTitle';
 export * from './YouTubeEmbedded';
 export * from './DarkMode';
 export * from './ColorBlock';
+export * from './PageLocation';

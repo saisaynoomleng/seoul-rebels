@@ -2,7 +2,6 @@ import type { Preview } from '@storybook/react-vite';
 import '../src/globals.css';
 import { withThemeByClassName } from '@storybook/addon-themes';
 import { Toaster } from '../src/components/ui/sonner';
-import { SidebarProvider, SidebarTrigger } from '../src/components/ui/sidebar';
 
 const preview: Preview = {
   parameters: {
@@ -31,11 +30,8 @@ const preview: Preview = {
     (Story) => {
       return (
         <>
-          <SidebarProvider>
-            <SidebarTrigger />
-            <Story />
-            <Toaster richColors position="bottom-center" closeButton />
-          </SidebarProvider>
+          <Story />
+          <Toaster richColors position="bottom-center" closeButton />
         </>
       );
     },

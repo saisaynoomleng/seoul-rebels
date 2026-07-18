@@ -1,6 +1,6 @@
 import {defineArrayMember, defineField, defineType} from 'sanity'
 import {IoStorefrontSharp} from 'react-icons/io5'
-import {formatTitle} from '@seoul-rebels/utils'
+import {formatTime, formatTitle} from '@seoul-rebels/utils'
 
 export const stockistType = defineType({
   name: 'stockist',
@@ -52,6 +52,20 @@ export const stockistType = defineType({
               validation: (rule) => rule.required(),
             }),
           ],
+          preview: {
+            select: {
+              openingHour: 'openingHours',
+              closingHour: 'closingHours',
+            },
+            prepare({openingHour, closingHour}) {
+              const open = openingHour ? formatTime(openingHour) : 'Opening Hour not specified'
+              const close = closingHour ? formatTime(closingHour) : 'Closing Hour not specified'
+
+              return {
+                subtitle: `Opening Hour: ${open} | Closing Hour: ${close}`,
+              }
+            },
+          },
         }),
       ],
     }),
