@@ -1,7 +1,3 @@
 @import '@seoul-rebels/ui/styles';
 
 @source "../../../../packages/ui/**/*.{ts,tsx}";
-
-body {
-  @apply bg-brand-white-50 dark:bg-brand-black-900;
-}

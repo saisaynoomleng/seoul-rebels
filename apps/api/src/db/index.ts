@@ -9,6 +9,10 @@ const createPool = () => {
     connectionString: env.DATABASE_URL,
     min: 2,
     max: 20,
+    ssl: {
+      rejectUnauthorized: false,
+    },
+    idleTimeoutMillis: 30000,
   });
 };
 
@@ -18,6 +22,9 @@ if (isProd()) {
   client = createPool();
 } else {
   client = remember('dbPool', () => createPool());
+  client.on('error', (err) => {
+    console.error('PG Pool err', err);
+  });
 }
 
 const db = drizzle({ client, relations, logger: true });

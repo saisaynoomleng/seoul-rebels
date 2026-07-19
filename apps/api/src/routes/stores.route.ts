@@ -1,6 +1,9 @@
 import { Router } from 'express';
 import { ValidateBody } from '../middleware/validations';
-import { CreateStoreController } from '../controllers/stores.controller';
+import {
+  CreateStoreController,
+  EditStoreController,
+} from '../controllers/stores.controller';
 import { StockistSchema } from '@seoul-rebels/utils';
 
 export const router: Router = Router();
@@ -19,6 +22,4 @@ router.delete('/:id', (req, res) => {
   return res.json({ message: `store ${req.params.id} deleted` });
 });
 
-router.patch('/:id', (req, res) => {
-  return res.json({ message: `store ${req.params.id} updated` });
-});
+router.patch('/:id', ValidateBody(StockistSchema), EditStoreController);

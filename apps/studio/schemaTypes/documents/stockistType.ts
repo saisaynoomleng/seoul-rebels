@@ -62,6 +62,7 @@ export const stockistType = defineType({
               const close = closingHour ? formatTime(closingHour) : 'Closing Hour not specified'
 
               return {
+                title: 'Store Hour',
                 subtitle: `Opening Hour: ${open} | Closing Hour: ${close}`,
               }
             },

@@ -1,29 +1,40 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { CreateStockistForm } from './CreateForm';
-import { expect, fn, getByRole } from 'storybook/test';
-import { mockFileUpload, mockForm, mockImageUploadAction } from '#lib/mockData';
+import { EditStockistForm } from './EditForm';
+import {
+  mockFileUpload,
+  mockForm,
+  mockImageUploadAction,
+  mockStockistData,
+} from '#lib/mockData';
+import { expect } from 'storybook/test';
 
-const meta: Meta<typeof CreateStockistForm> = {
-  title: 'Components/Admin/Stockists/CreateForm',
-  component: CreateStockistForm,
+const meta: Meta<typeof EditStockistForm> = {
+  title: 'Components/Admin/Stockists/EditForm',
+  component: EditStockistForm,
   tags: ['autodocs'],
   parameters: {
     layout: 'fullscreen',
     docs: {
       description: {
-        component: 'Admin Dashboard: Create Stockist Form',
+        component: 'Admin Dashboard: Edit Stockist Form',
       },
     },
   },
 
   args: {
-    action: mockForm,
+    stockist: mockStockistData,
     imageUploadAction: mockImageUploadAction,
+    action: mockForm,
   },
   argTypes: {
+    stockist: {
+      control: false,
+      description: 'Stockist data from Sanity',
+    },
+
     action: {
       control: false,
-      description: 'Server Action to be rendered in Next.js & Express',
+      description: 'Server Action to be rendered in Next.js',
     },
 
     imageUploadAction: {
@@ -39,7 +50,7 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {};
 
 export const FilledForm: Story = {
-  render: (args) => <CreateStockistForm {...args} />,
+  render: (args) => <EditStockistForm {...args} />,
   play: async ({ canvas, userEvent }) => {
     const name = canvas.getByLabelText(/store name/i);
     const slug = canvas.getByLabelText(/slug/i);
@@ -71,17 +82,33 @@ export const FilledForm: Story = {
     await expect(imageAlt).toBeInTheDocument();
     await expect(submit).toBeInTheDocument();
 
-    await userEvent.type(name, 'Haru Store');
+    await userEvent.clear(name);
+    await userEvent.clear(email);
+    await userEvent.clear(phone);
+    await userEvent.clear(street);
+    await userEvent.clear(city);
+    await userEvent.clear(zip);
+    await userEvent.clear(state);
+    await userEvent.clear(country);
+    await userEvent.clear(imageAlt);
+
+    for (let i = 0; i < 7; i++) {
+      await userEvent.clear(canvas.getByTestId(`storeHours.${i}.openingHours`));
+      await userEvent.clear(canvas.getByTestId(`storeHours.${i}.closingHours`));
+    }
+
+    await userEvent.click(submit);
+    await userEvent.type(name, 'Haru Store Edit');
     await userEvent.click(generateSlug);
     await userEvent.type(email, 'haru@mail.com');
-    await userEvent.type(phone, '+12345667890');
-    await userEvent.type(street, 'street');
-    await userEvent.type(city, 'city');
-    await userEvent.type(zip, '10001');
-    await userEvent.type(state, 'state');
-    await userEvent.type(country, 'country');
+    await userEvent.type(phone, '+12345667890 edit');
+    await userEvent.type(street, 'street edit');
+    await userEvent.type(city, 'city edit');
+    await userEvent.type(zip, '10001 edit');
+    await userEvent.type(state, 'state edit');
+    await userEvent.type(country, 'country edit');
     await userEvent.upload(image, mockFileUpload);
-    await userEvent.type(imageAlt, 'alt');
+    await userEvent.type(imageAlt, 'alt edit');
 
     for (let i = 0; i < 7; i++) {
       await userEvent.type(
@@ -93,21 +120,22 @@ export const FilledForm: Story = {
         '17:00',
       );
     }
+
     await userEvent.click(submit);
 
     await expect(mockForm).toHaveBeenCalledWith(
       expect.objectContaining({
-        name: 'Haru Store',
-        slug: 'haru-store',
+        name: 'Haru Store Edit',
+        slug: 'haru-store-edit',
         email: 'haru@mail.com',
-        phone: '+12345667890',
-        street: 'street',
-        city: 'city',
-        zip: '10001',
-        state: 'state',
-        country: 'country',
+        phone: '+12345667890 edit',
+        street: 'street edit',
+        city: 'city edit',
+        zip: '10001 edit',
+        state: 'state edit',
+        country: 'country edit',
         imageAssetId: 'test imageAssetId',
-        imageAlt: 'alt',
+        imageAlt: 'alt edit',
         storeHours: [
           {
             _key: expect.stringContaining('-'),

@@ -17,7 +17,7 @@ const AdminNav = ({ className }: AdminNav): React.JSX.Element => {
     <Bounded
       as="nav"
       size="full"
-      className={twMerge(clsx('shadow flex justify-between', className))}
+      className={twMerge(clsx('shadow-lg flex justify-between', className))}
     >
       <div>
         <SidebarTrigger />

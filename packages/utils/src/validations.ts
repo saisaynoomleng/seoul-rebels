@@ -4,6 +4,7 @@ import * as z from 'zod';
  * Validate Stockist Form Schema
  */
 export const StockistFormSchema = z.object({
+  _id: z.string().nullable(),
   name: z.string().min(1, 'Store name must have at least 1 character'),
   slug: z.string().min(1, 'Store slug must have at least 1 character'),
   email: z

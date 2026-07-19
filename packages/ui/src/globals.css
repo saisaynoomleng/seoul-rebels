@@ -57,11 +57,11 @@
   --popover-foreground: var(--color-brand-black-900);
   --primary: var(--color-brand-primary-300);
   --primary-foreground: var(--color-brand-primary-900);
-  --secondary: var(--color-red-500-400);
+  --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: var(--color-brand-accent-200);
+  --muted: var(--color-brand-accent-500);
+  --muted-foreground: var(--color-brand-accent-700);
+  --accent: var(--color-brand-accent-500);
   --accent-foreground: var(--color-brand-accent-900);
   --destructive: oklch(0.577 0.245 27.325);
   --border: var(--color-brand-black-200);
@@ -93,12 +93,12 @@
   --primary-foreground: var(--color-brand-primary-900);
   --secondary: oklch(0.269 0 0);
   --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
+  --muted: var(--color-brand-accent-700);
+  --muted-foreground: var(--color-brand-accent-500);
   --accent: var(--color-brand-accent-500);
   --accent-foreground: var(--color-brand-accent-900);
   --destructive: oklch(0.704 0.191 22.216);
-  --border: var(--color-brand-accent-900);
+  --border: var(--color-brand-accent-700);
   --input: var(--color-brand-accent-700);
   --ring: var(--color-brand-primary-500);
   --chart-1: oklch(0.488 0.243 264.376);
@@ -228,7 +228,7 @@
     @apply scroll-smooth;
   }
   body {
-    @apply text-brand-black-900 bg-brand-white-50 dark:text-brand-white-50 dark:bg-brand-black-900 leading-normal tracking-normal overflow-x-hidden font-body text-fs-400;
+    @apply text-brand-black-900 bg-brand-white-50  dark:text-brand-white-50 dark:bg-brand-black-900 leading-normal tracking-normal overflow-x-hidden font-body text-fs-400;
   }
   h1,
   h2,
