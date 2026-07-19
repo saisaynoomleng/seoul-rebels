@@ -24,6 +24,9 @@ import { MdMapsHomeWork } from 'react-icons/md';
 import { SiNike } from 'react-icons/si';
 import { LuBookHeart } from 'react-icons/lu';
 import { GrWorkshop } from 'react-icons/gr';
+import { CiMapPin } from 'react-icons/ci';
+import { PiEyes } from 'react-icons/pi';
+import { AiOutlineEdit } from 'react-icons/ai';
 
 const Icons = [
   <GiStairsGoal />,
@@ -42,6 +45,9 @@ const Icons = [
   <MdMapsHomeWork />,
   <LuBookHeart />,
   <FaMagnifyingGlass />,
+  <CiMapPin />,
+  <PiEyes />,
+  <AiOutlineEdit />,
 ];
 
 const HEADING = [

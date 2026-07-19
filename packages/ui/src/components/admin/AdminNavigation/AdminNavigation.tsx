@@ -29,11 +29,14 @@ export const AdminNavigation = ({
       padding="sm"
       isCentered={false}
       className={twMerge(
-        clsx('flex items-center justify-between min-w-full shadow', className),
+        clsx(
+          'flex items-center justify-between min-w-full shadow-lg',
+          className,
+        ),
       )}
     >
       <div className="flex items-center gap-x-4">
-        <p>{title}</p>
+        <p className="font-semibold text-fs-500">{title} (Stores)</p>
         <Separator orientation="vertical" />
         <PageLocation location={location} />
       </div>

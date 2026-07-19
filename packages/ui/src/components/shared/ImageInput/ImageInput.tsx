@@ -48,7 +48,7 @@ export const ImageInput = ({
   };
 
   return (
-    <Bounded className="border" as="div" size="full">
+    <Bounded className="border border-input" as="div" size="full">
       <Field className="flex flex-col gap-y-4 w-full">
         <FieldLabel htmlFor="photo">Upload an image</FieldLabel>
 
@@ -69,7 +69,7 @@ export const ImageInput = ({
             </AttachmentContent>
           </Attachment>
         ) : (
-          <Attachment>
+          <Attachment className="border-input">
             <GoFileMedia size={50} className="mx-auto " />
           </Attachment>
         )}

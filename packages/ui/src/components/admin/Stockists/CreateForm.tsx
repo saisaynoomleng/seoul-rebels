@@ -25,6 +25,7 @@ export const CreateStockistForm = ({
   const form = useForm<StockistInputSchema>({
     resolver: zodResolver(StockistFormSchema),
     defaultValues: {
+      _id: '',
       name: '',
       slug: '',
       email: '',
@@ -64,7 +65,7 @@ export const CreateStockistForm = ({
       title="Create Stockist"
       form={form}
       onSubmit={onSubmit}
-      submitLabel="Create"
+      submitLabel="Publish"
       imageUploadAction={imageUploadAction}
     />
   );

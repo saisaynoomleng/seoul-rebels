@@ -1,9 +1,15 @@
 import type { Metadata } from 'next';
 import './globals.css';
-import { SidebarProvider, ThemeProvider, Toaster } from '@seoul-rebels/ui';
+import {
+  SidebarProvider,
+  ThemeProvider,
+  Toaster,
+  TooltipProvider,
+} from '@seoul-rebels/ui';
 import { AdminSidebar } from '@/components/AdminSidebar';
 import { QueryProvider } from '@/components/QueryProvider';
 import AdminNav from '@/components/AdminNav';
+import { SanityLive } from '@/sanity/live';
 
 export const metadata: Metadata = {
   title: {
@@ -22,26 +28,31 @@ export default function RootLayout({
     <html
       lang="en"
       className={`min-h-dvh antialiased`}
+      data-scroll-behavior="smooth"
       suppressHydrationWarning
     >
-      <body className="min-h-full bg-brand-accent-50">
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <SidebarProvider>
-            <AdminSidebar />
-            <QueryProvider>
-              <main className="w-full">
-                <AdminNav />
-                {children}
-                <Toaster richColors closeButton position="bottom-center" />
-              </main>
-            </QueryProvider>
-          </SidebarProvider>
-        </ThemeProvider>
+      <body className="min-h-full">
+        <TooltipProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <SidebarProvider>
+              <AdminSidebar />
+              <QueryProvider>
+                <main className="w-full">
+                  <AdminNav />
+                  {children}
+
+                  <SanityLive />
+                  <Toaster richColors closeButton position="bottom-center" />
+                </main>
+              </QueryProvider>
+            </SidebarProvider>
+          </ThemeProvider>
+        </TooltipProvider>
       </body>
     </html>
   );

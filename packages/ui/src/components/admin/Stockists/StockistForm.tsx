@@ -58,7 +58,7 @@ export const StockistForm = ({
       });
     }
 
-    form.setValue('slug', slug, {
+    form.setValue('slug', `${slug}-store`, {
       shouldDirty: true,
       shouldTouch: true,
       shouldValidate: true,
@@ -111,6 +111,9 @@ export const StockistForm = ({
         <FieldLabel htmlFor="slug">Slug</FieldLabel>
         <FieldDescription>
           Slug is required to generate a page on the website
+          <span className="block test-fs-300 text-brand-success-700 font-semibold">
+            Gererate automatically with Generate button
+          </span>
         </FieldDescription>
         <div className="flex items-center gap-x-2">
           <Input type="text" id="slug" {...register('slug')} />
@@ -183,7 +186,7 @@ export const StockistForm = ({
         as="div"
         size="full"
         isCentered={false}
-        className="col-span-full border"
+        className="col-span-full border border-input"
         space
       >
         <p className="font-semibold">Store Hours</p>
