@@ -32,6 +32,8 @@ export const mockStockistData = {
   country: 'country',
   imageAssetId: 'test imageAssetId',
   imageAlt: 'alt',
+  latitude: 0,
+  longitude: 0,
   storeHours: [
     {
       closingHour: '17:00',

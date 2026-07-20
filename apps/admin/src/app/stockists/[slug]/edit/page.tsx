@@ -31,6 +31,8 @@ const StockistEditPage = async ({
     imageAlt: store.imageAlt || '',
     imageAssetId: store.imageAssetId || '',
     storeHours: store.storeHours as StockistOutputSchema['storeHours'],
+    longitude: store.contacts?.longitude || 0,
+    latitude: store.contacts?.latitude || 0,
   };
 
   return (

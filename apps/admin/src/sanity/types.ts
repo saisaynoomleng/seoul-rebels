@@ -366,6 +366,8 @@ export type ContactInfo = {
   state?: string;
   zip?: string;
   country?: string;
+  latitude?: number;
+  longitude?: number;
 };
 
 export type Faqs = {

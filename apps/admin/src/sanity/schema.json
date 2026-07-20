@@ -1983,6 +1983,20 @@
             "type": "string"
           },
           "optional": true
+        },
+        "latitude": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "number"
+          },
+          "optional": true
+        },
+        "longitude": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "number"
+          },
+          "optional": true
         }
       }
     }

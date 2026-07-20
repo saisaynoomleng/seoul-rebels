@@ -166,6 +166,36 @@ export const StockistForm = ({
         {errors.country && <FieldError>{errors.country.message}</FieldError>}
       </Field>
 
+      <Field>
+        <FieldLabel htmlFor="latitude">Latitude</FieldLabel>
+        <FieldDescription>
+          Latitude value can be found on Google Map
+        </FieldDescription>
+        <Input
+          type="number"
+          id="latitude"
+          step="any"
+          {...register('latitude', { valueAsNumber: true })}
+        />
+        {errors.latitude && <FieldError>{errors.latitude.message}</FieldError>}
+      </Field>
+
+      <Field>
+        <FieldLabel htmlFor="longitude">Longitude</FieldLabel>
+        <FieldDescription>
+          Longitude value can be found on Google Map
+        </FieldDescription>
+        <Input
+          type="number"
+          step="any"
+          id="longitude"
+          {...register('longitude', { valueAsNumber: true })}
+        />
+        {errors.longitude && (
+          <FieldError>{errors.longitude.message}</FieldError>
+        )}
+      </Field>
+
       <Field className="col-span-full">
         <ImageInput
           onChange={handleImageUploadAction}
