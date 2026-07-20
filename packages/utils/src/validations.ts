@@ -16,6 +16,8 @@ export const StockistFormSchema = z.object({
   state: z.string().min(1, 'State must have at least 1 character'),
   zip: z.string().min(1, 'Zip code must have at least 1 character'),
   country: z.string().min(1, 'Country must have at least 1 character'),
+  latitude: z.coerce.number(),
+  longitude: z.coerce.number(),
   imageAssetId: z.string(),
   imageAlt: z.string().min(1, 'Image Alt is required for accessiblity'),
   storeHours: z

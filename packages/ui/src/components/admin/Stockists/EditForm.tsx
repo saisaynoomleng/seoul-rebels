@@ -41,6 +41,8 @@ export const EditStockistForm = ({
       storeHours: stockist.storeHours,
       imageAlt: stockist.imageAlt,
       imageAssetId: stockist.imageAssetId,
+      latitude: stockist.latitude,
+      longitude: stockist.longitude,
     },
   });
 

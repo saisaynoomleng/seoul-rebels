@@ -17,8 +17,8 @@ type StockistPreviewCardProps = {
   imageAlt: string;
   editAction: CallToAction;
   previewAction: CallToAction;
-  renderEditAction: (props: CallToAction) => React.ReactNode;
-  renderPreviewAction: (props: CallToAction) => React.ReactNode;
+  renderEditAction: (props: CallToAction) => React.ReactElement;
+  renderPreviewAction: (props: CallToAction) => React.ReactElement;
   name: string;
   city: string;
   country: string;
@@ -67,14 +67,10 @@ export const StockistPreviewCard = ({
       <div className="self-end flex justify-between ">
         <Tooltip>
           <TooltipTrigger
-            render={
-              <Button variant="link">
-                {renderPreviewAction({
-                  label: previewAction.label,
-                  href: previewAction.href,
-                })}
-              </Button>
-            }
+            render={renderPreviewAction({
+              label: previewAction.label,
+              href: previewAction.href,
+            })}
           />
           <TooltipContent>
             <p>Preview this Stockist</p>
@@ -83,14 +79,10 @@ export const StockistPreviewCard = ({
 
         <Tooltip>
           <TooltipTrigger
-            render={
-              <Button variant="link">
-                {renderEditAction({
-                  label: editAction.label,
-                  href: editAction.href,
-                })}
-              </Button>
-            }
+            render={renderEditAction({
+              label: editAction.label,
+              href: editAction.href,
+            })}
           />
           <TooltipContent>
             <p>Edit this Stockist</p>

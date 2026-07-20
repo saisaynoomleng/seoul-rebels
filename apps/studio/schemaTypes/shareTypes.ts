@@ -217,5 +217,15 @@ export const contactInfo = defineType({
       type: 'string',
       validation: (rule) => rule.required(),
     }),
+    defineField({
+      name: 'latitude',
+      type: 'number',
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: 'longitude',
+      type: 'number',
+      validation: (rule) => rule.required(),
+    }),
   ],
 })
