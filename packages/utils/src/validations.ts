@@ -41,10 +41,30 @@ export type StockistInputSchema = z.input<typeof StockistFormSchema>;
  */
 export type StockistOutputSchema = z.output<typeof StockistFormSchema>;
 /**
- * Validate Express API
+ * Validate Stockists Express API
  */
 export const StockistSchema = z.object({
   sanityId: z.string().min(1, 'sanity id must have at least 1 character'),
   sanitySlug: z.string().min(1, 'snaity slug must have at least 1 character'),
   name: z.string().min(1, 'store name must have at least 1 character'),
 });
+
+/**
+ * Validate Team Member Form Schema
+ */
+export const TeamMemberFormSchema = z.object({
+  _id: z.string(),
+  name: z.string().min(1, 'Member name must have at least 1 character'),
+  slug: z.string().min(1, 'Slug must have at least 1 character'),
+  position: z.string().min(1, 'Position must have at least 1 character'),
+  imageAssetId: z.string(),
+  imageAlt: z.string(),
+});
+/**
+ * Validate Team Member Form input schema
+ */
+export type TeamMemberInputSchema = z.input<typeof TeamMemberFormSchema>;
+/**
+ * Validate Team Member Form output schema
+ */
+export type TeamMemberOutputSchema = z.output<typeof TeamMemberFormSchema>;

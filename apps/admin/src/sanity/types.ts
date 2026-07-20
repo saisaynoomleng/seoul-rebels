@@ -703,11 +703,37 @@ export type STOCKIST_RESULT = {
   imageAssetId: string | null;
 } | null;
 
+// Source: src/sanity/query.ts
+// Variable: ALL_TEAMMEMBERS
+// Query: *[_type == 'teamMember' && defined(slug.current)]  |order($order)  {  _id,  name,  "slug": slug.current,  position,  "imageUrl": mainImage.asset->url,  "imageAlt": mainImage.alt }
+export type ALL_TEAMMEMBERS_RESULT = Array<{
+  _id: string;
+  name: string | null;
+  slug: string | null;
+  position: string | null;
+  imageUrl: string | null;
+  imageAlt: string | null;
+}>;
+
+// Source: src/sanity/query.ts
+// Variable: TEAMMEMBER
+// Query: *[_type == 'teamMember' && slug.current == $slug][0]  {  _id,  name,  "slug": slug.current,  position,  "imageUrl": mainImage.asset->url,  "imageAlt": mainImage.alt }
+export type TEAMMEMBER_RESULT = {
+  _id: string;
+  name: string | null;
+  slug: string | null;
+  position: string | null;
+  imageUrl: string | null;
+  imageAlt: string | null;
+} | null;
+
 // Query TypeMap
 import '@sanity/client';
 declare module '@sanity/client' {
   interface SanityQueries {
     '*[_type == \'stockist\'\n && defined(slug.current)\n ]| order(_createdAt){\n  _id,\n  name,\n  "slug": slug.current,\n  "imageUrl": mainImage.asset->url,\n  "imageAlt": mainImage.alt,\n  "city": contacts.city,\n  "country": contacts.country\n }\n': ALL_STOCKISTS_RESULT;
     '*[_type == \'stockist\'\n && slug.current == $slug\n ][0]{\n  _id,  \n  name,\n  "slug": slug.current,\n  "imageUrl": mainImage.asset->url,\n  "imageAlt": mainImage.alt,\n  contacts,\n  storeHours[],\n  "imageAssetId": mainImage.asset._ref,\n }\n': STOCKIST_RESULT;
+    '*[_type == \'teamMember\'\n && defined(slug.current)]\n  |order($order)\n  {\n  _id,\n  name,\n  "slug": slug.current,\n  position,\n  "imageUrl": mainImage.asset->url,\n  "imageAlt": mainImage.alt\n }': ALL_TEAMMEMBERS_RESULT;
+    '*[_type == \'teamMember\'\n && slug.current == $slug][0]\n  {\n  _id,\n  name,\n  "slug": slug.current,\n  position,\n  "imageUrl": mainImage.asset->url,\n  "imageAlt": mainImage.alt\n }': TEAMMEMBER_RESULT;
   }
 }

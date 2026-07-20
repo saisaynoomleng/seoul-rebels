@@ -36,7 +36,7 @@ export const AdminNavigation = ({
       )}
     >
       <div className="flex items-center gap-x-4">
-        <p className="font-semibold text-fs-500">{title} (Stores)</p>
+        <p className="font-semibold text-fs-500">{title}</p>
         <Separator orientation="vertical" />
         <PageLocation location={location} />
       </div>

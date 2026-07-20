@@ -75,18 +75,22 @@ const SIDEBAR_MENU = [
   {
     label: 'products',
     menus: [
-      { label: 'brands', icon: <SiNike />, url: '/products' },
+      { label: 'brands', icon: <SiNike />, url: '/brands' },
       {
         label: 'product categories',
         icon: <BiSolidCategory />,
-        url: '/products',
+        url: '/products-categories',
       },
       { label: 'products', icon: <GiTShirt />, url: '/products' },
-      { label: 'product variants', icon: <GiFurShirt />, url: '/products' },
-      { label: 'size charts', icon: <GiResize />, url: '/products' },
-      { label: 'collections', icon: <BiCollection />, url: '/products' },
-      { label: 'lookbooks', icon: <LuBookHeart />, url: '/products' },
-      { label: 'shop the looks', icon: <GrWorkshop />, url: '/products' },
+      {
+        label: 'product variants',
+        icon: <GiFurShirt />,
+        url: '/products-variants',
+      },
+      { label: 'size charts', icon: <GiResize />, url: '/size-charts' },
+      { label: 'collections', icon: <BiCollection />, url: '/collections' },
+      { label: 'lookbooks', icon: <LuBookHeart />, url: '/lookbooks' },
+      { label: 'shop the looks', icon: <GrWorkshop />, url: '/shop-the-looks' },
     ],
   },
 
@@ -95,13 +99,13 @@ const SIDEBAR_MENU = [
     label: 'marketing',
     menus: [
       { label: 'milestones', icon: <GiStairsGoal />, url: '/marketing' },
-      { label: 'blogs', icon: <PiNewspaperBold />, url: '/marketing' },
+      { label: 'blogs', icon: <PiNewspaperBold />, url: '/blogs' },
       {
         label: 'blogs categories',
         icon: <BiSolidCategoryAlt />,
-        url: '/marketing',
+        url: '/blogs-categories',
       },
-      { label: 'faqs', icon: <RiQuestionnaireLine />, url: '/marketing' },
+      { label: 'faqs', icon: <RiQuestionnaireLine />, url: '/faqs' },
     ],
   },
 
@@ -112,12 +116,12 @@ const SIDEBAR_MENU = [
       {
         label: 'hero banners',
         icon: <BsPostcardHeartFill />,
-        url: '/herobanner',
+        url: '/hero-banners',
       },
       {
         label: 'utility pages',
         icon: <BsReverseLayoutTextWindowReverse />,
-        url: '/herobanner',
+        url: '/utility-pages',
       },
     ],
   },

@@ -4,7 +4,6 @@ import { CallToAction } from '@seoul-rebels/utils';
 import { twMerge } from 'tailwind-merge';
 import clsx from 'clsx';
 import { CiMapPin } from 'react-icons/ci';
-import { Button } from '#components/ui/button';
 import {
   Tooltip,
   TooltipContent,
