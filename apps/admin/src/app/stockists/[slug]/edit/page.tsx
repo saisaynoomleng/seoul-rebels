@@ -19,20 +19,20 @@ const StockistEditPage = async ({
 
   const stockist: StockistOutputSchema = {
     _id: store._id,
-    name: store.name || '',
-    slug: store.slug || '',
-    email: store.contacts?.email || '',
-    phone: store.contacts?.phone || '',
-    street: store.contacts?.street || '',
-    city: store.contacts?.city || '',
-    state: store.contacts?.state || '',
-    zip: store.contacts?.zip || '',
-    country: store.contacts?.country || '',
-    imageAlt: store.imageAlt || '',
-    imageAssetId: store.imageAssetId || '',
+    name: store.name ?? '',
+    slug: store.slug ?? '',
+    email: store.contacts?.email ?? '',
+    phone: store.contacts?.phone ?? '',
+    street: store.contacts?.street ?? '',
+    city: store.contacts?.city ?? '',
+    state: store.contacts?.state ?? '',
+    zip: store.contacts?.zip ?? '',
+    country: store.contacts?.country ?? '',
+    imageAlt: store.imageAlt ?? '',
+    imageAssetId: store.imageAssetId ?? '',
     storeHours: store.storeHours as StockistOutputSchema['storeHours'],
-    longitude: store.contacts?.longitude || 0,
-    latitude: store.contacts?.latitude || 0,
+    longitude: store.contacts?.longitude ?? 0,
+    latitude: store.contacts?.latitude ?? 0,
   };
 
   return (
