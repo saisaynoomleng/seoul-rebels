@@ -4,7 +4,7 @@ import { Bounded } from '@seoul-rebels/ui';
 const TeamMembersPage = () => {
   return (
     <Bounded size="full" isCentered={false}>
-      <AllTeamMemberDashboard order="_createdAt" />
+      <AllTeamMemberDashboard order="name" />
     </Bounded>
   );
 };

@@ -45,15 +45,13 @@ export const TeamMemberPreviewCard = ({
       </div>
 
       <div className="flex flex-col gap-y-2">
-        <div className="flex items-center justify-between">
-          <p data-testid="name">{name}</p>
-          <p
-            data-testid="position"
-            className="text-brand-accent-600 font-semibold text-fs-300"
-          >
-            {position}
-          </p>
-        </div>
+        <p data-testid="name">{name}</p>
+        <p
+          data-testid="position"
+          className="text-brand-accent-600 font-semibold text-fs-300"
+        >
+          {position}
+        </p>
 
         <PreviewCardRender
           cardName="Team Member"

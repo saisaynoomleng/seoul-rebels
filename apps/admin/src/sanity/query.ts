@@ -47,5 +47,6 @@ export const TEAMMEMBER = defineQuery(`*[_type == 'teamMember'
   "slug": slug.current,
   position,
   "imageUrl": mainImage.asset->url,
-  "imageAlt": mainImage.alt
+  "imageAlt": mainImage.alt,
+  "imageAssetId": mainImage.asset._ref
  }`);

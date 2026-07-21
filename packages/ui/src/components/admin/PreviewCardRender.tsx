@@ -31,33 +31,32 @@ export const PreviewCardRender = ({
       as="div"
       padding="none"
       isCentered={false}
+      size="full"
       className={twMerge(clsx('self-end flex justify-between', className))}
     >
-      <div>
-        <Tooltip>
-          <TooltipTrigger
-            render={renderPreviewAction({
-              label: previewAction.label,
-              href: previewAction.href,
-            })}
-          />
-          <TooltipContent>
-            <p>Preview this {cardName}</p>
-          </TooltipContent>
-        </Tooltip>
+      <Tooltip>
+        <TooltipTrigger
+          render={renderPreviewAction({
+            label: previewAction.label,
+            href: previewAction.href,
+          })}
+        />
+        <TooltipContent>
+          <p>Preview this {cardName}</p>
+        </TooltipContent>
+      </Tooltip>
 
-        <Tooltip>
-          <TooltipTrigger
-            render={renderEditAction({
-              label: editAction.label,
-              href: editAction.href,
-            })}
-          />
-          <TooltipContent>
-            <p>Edit this {cardName}</p>
-          </TooltipContent>
-        </Tooltip>
-      </div>
+      <Tooltip>
+        <TooltipTrigger
+          render={renderEditAction({
+            label: editAction.label,
+            href: editAction.href,
+          })}
+        />
+        <TooltipContent>
+          <p>Edit this {cardName}</p>
+        </TooltipContent>
+      </Tooltip>
     </Bounded>
   );
 };
