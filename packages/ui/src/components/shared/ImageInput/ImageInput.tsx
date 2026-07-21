@@ -48,31 +48,38 @@ export const ImageInput = ({
   };
 
   return (
-    <Bounded className="border border-input" as="div" size="full">
+    <Bounded as="div" size="full" padding="none">
       <Field className="flex flex-col gap-y-4 w-full">
         <FieldLabel htmlFor="photo">Upload an image</FieldLabel>
 
-        {image?.file ? (
-          <Attachment orientation="vertical" className="w-full mx-auto">
-            <AttachmentMedia>
-              <img src={image.preview} alt="" className="mx-auto" />
-            </AttachmentMedia>
-            <AttachmentContent>
-              <AttachmentDescription>
-                <span className="font-semibold">Size: </span>
-                {formatFileSize(image.file.size)}
-              </AttachmentDescription>
-              <AttachmentDescription>
-                <span className="font-semibold">Type: </span>
-                {image.file.type.split('/')[1]?.toUpperCase()}
-              </AttachmentDescription>
-            </AttachmentContent>
-          </Attachment>
-        ) : (
-          <Attachment className="border-input">
-            <GoFileMedia size={50} className="mx-auto " />
-          </Attachment>
-        )}
+        <Bounded
+          as="div"
+          className="border border-input w-full"
+          isCentered={false}
+          size="full"
+        >
+          {image?.file ? (
+            <Attachment orientation="vertical" className="w-full mx-auto">
+              <AttachmentMedia>
+                <img src={image.preview} alt="" className="mx-auto" />
+              </AttachmentMedia>
+              <AttachmentContent>
+                <AttachmentDescription>
+                  <span className="font-semibold">Size: </span>
+                  {formatFileSize(image.file.size)}
+                </AttachmentDescription>
+                <AttachmentDescription>
+                  <span className="font-semibold">Type: </span>
+                  {image.file.type.split('/')[1]?.toUpperCase()}
+                </AttachmentDescription>
+              </AttachmentContent>
+            </Attachment>
+          ) : (
+            <Attachment className="mx-auto border-input">
+              <GoFileMedia size={50} className="mx-auto " />
+            </Attachment>
+          )}
+        </Bounded>
 
         <Input
           type="file"
