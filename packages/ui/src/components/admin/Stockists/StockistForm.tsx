@@ -201,6 +201,9 @@ export const StockistForm = ({
           onChange={handleImageUploadAction}
           errorMessage={errors.imageAssetId?.message}
         />
+        {errors.imageAssetId && (
+          <FieldError>{errors.imageAssetId.message}</FieldError>
+        )}
       </Field>
 
       <Field className="col-span-full">
