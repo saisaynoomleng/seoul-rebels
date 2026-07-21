@@ -717,7 +717,7 @@ export type ALL_TEAMMEMBERS_RESULT = Array<{
 
 // Source: src/sanity/query.ts
 // Variable: TEAMMEMBER
-// Query: *[_type == 'teamMember' && slug.current == $slug][0]  {  _id,  name,  "slug": slug.current,  position,  "imageUrl": mainImage.asset->url,  "imageAlt": mainImage.alt }
+// Query: *[_type == 'teamMember' && slug.current == $slug][0]  {  _id,  name,  "slug": slug.current,  position,  "imageUrl": mainImage.asset->url,  "imageAlt": mainImage.alt,  "imageAssetId": mainImage.asset._ref }
 export type TEAMMEMBER_RESULT = {
   _id: string;
   name: string | null;
@@ -725,6 +725,7 @@ export type TEAMMEMBER_RESULT = {
   position: string | null;
   imageUrl: string | null;
   imageAlt: string | null;
+  imageAssetId: string | null;
 } | null;
 
 // Query TypeMap
@@ -734,6 +735,6 @@ declare module '@sanity/client' {
     '*[_type == \'stockist\'\n && defined(slug.current)\n ]| order(_createdAt){\n  _id,\n  name,\n  "slug": slug.current,\n  "imageUrl": mainImage.asset->url,\n  "imageAlt": mainImage.alt,\n  "city": contacts.city,\n  "country": contacts.country\n }\n': ALL_STOCKISTS_RESULT;
     '*[_type == \'stockist\'\n && slug.current == $slug\n ][0]{\n  _id,  \n  name,\n  "slug": slug.current,\n  "imageUrl": mainImage.asset->url,\n  "imageAlt": mainImage.alt,\n  contacts,\n  storeHours[],\n  "imageAssetId": mainImage.asset._ref,\n }\n': STOCKIST_RESULT;
     '*[_type == \'teamMember\'\n && defined(slug.current)]\n  |order($order)\n  {\n  _id,\n  name,\n  "slug": slug.current,\n  position,\n  "imageUrl": mainImage.asset->url,\n  "imageAlt": mainImage.alt\n }': ALL_TEAMMEMBERS_RESULT;
-    '*[_type == \'teamMember\'\n && slug.current == $slug][0]\n  {\n  _id,\n  name,\n  "slug": slug.current,\n  position,\n  "imageUrl": mainImage.asset->url,\n  "imageAlt": mainImage.alt\n }': TEAMMEMBER_RESULT;
+    '*[_type == \'teamMember\'\n && slug.current == $slug][0]\n  {\n  _id,\n  name,\n  "slug": slug.current,\n  position,\n  "imageUrl": mainImage.asset->url,\n  "imageAlt": mainImage.alt,\n  "imageAssetId": mainImage.asset._ref\n }': TEAMMEMBER_RESULT;
   }
 }

@@ -12,7 +12,7 @@ import { Suspense } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { PathActionButton } from './PathActionButton';
 
-export const AllTeamMemberDashboard = ({ order = '_createdAt' }) => {
+export const AllTeamMemberDashboard = ({ order = 'name' }) => {
   const params = {
     order,
   };
@@ -30,7 +30,7 @@ export const AllTeamMemberDashboard = ({ order = '_createdAt' }) => {
       as="div"
       isCentered={false}
       size="full"
-      className={twMerge(clsx(''))}
+      className={twMerge(clsx('grid grid-cols-4 gap-6'))}
     >
       {data.map((member) => (
         <Suspense key={member._id} fallback={<TeamMemberCardSkeleton />}>

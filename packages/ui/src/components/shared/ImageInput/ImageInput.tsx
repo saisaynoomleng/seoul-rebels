@@ -59,7 +59,10 @@ export const ImageInput = ({
           size="full"
         >
           {image?.file ? (
-            <Attachment orientation="vertical" className="w-full mx-auto">
+            <Attachment
+              orientation="vertical"
+              className="w-full mx-auto border-input"
+            >
               <AttachmentMedia>
                 <img src={image.preview} alt="" className="mx-auto" />
               </AttachmentMedia>
@@ -75,8 +78,11 @@ export const ImageInput = ({
               </AttachmentContent>
             </Attachment>
           ) : (
-            <Attachment className="mx-auto border-input">
-              <GoFileMedia size={50} className="mx-auto " />
+            <Attachment className="mx-auto border-none">
+              <GoFileMedia
+                size={50}
+                className="mx-auto text-brand-accent-400"
+              />
             </Attachment>
           )}
         </Bounded>

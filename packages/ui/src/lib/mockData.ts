@@ -90,3 +90,12 @@ export const mockStockistData = {
     },
   ],
 };
+
+export const mockTeamMember = {
+  _id: 'a984c5a9-6259-4a17-a1e2-979717f41638-17845938',
+  imageAlt: 'photo',
+  imageAssetId: 'test imageAssetId',
+  name: 'sai say',
+  position: 'CEO',
+  slug: 'sai-say-team-member',
+};

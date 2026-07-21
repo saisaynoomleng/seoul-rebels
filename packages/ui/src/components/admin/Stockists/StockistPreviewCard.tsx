@@ -63,7 +63,7 @@ export const StockistPreviewCard = ({
         </div>
       </div>
 
-      <div className="self-end flex justify-between ">
+      <div className="self-end flex justify-between">
         <Tooltip>
           <TooltipTrigger
             render={renderPreviewAction({
